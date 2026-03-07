@@ -1,10 +1,12 @@
+%global commit 789e716f55beb625cfc71fe8be2ef9c7364bb689
+
 Name:          linuxcnc
-Version:       02072026
+Version:       03072026
 Release:       1
 Summary:       Motion controller for CNC machines and robots
 License:       GPLv2+
 URL:           http://www.linuxcnc.io/
-Source0:       linuxcnc-ffee136f3652ce1aacafaa171e8ca5805e3d473d.zip
+Source0:       linuxcnc-%{commit}.zip
 
 BuildRequires: intltool
 BuildRequires: %{_bindir}/a2x
@@ -53,6 +55,8 @@ BuildRequires: python3-qt5-webengine
 BuildRequires: pango
 BuildRequires: python3-gobject
 BuildRequires: python3-cairo
+BuildRequires: fmt-devel
+BuildRequires: readline-devel
 
 Suggests:      glade
 
@@ -63,7 +67,7 @@ Recommends:    mesaflash
 Motion controller for CNC machines and robots
 
 %prep
-%setup -n linuxcnc-ffee136f3652ce1aacafaa171e8ca5805e3d473d
+%setup -n linuxcnc-%{commit}
 
 pushd src
 ./autogen.sh
@@ -82,21 +86,31 @@ popd
 %{make_install} -C src \
     DESTDIR=%{buildroot}
 
+desktop-file-install share/applications/linuxcnc-latency.desktop
+desktop-file-install share/applications/linuxcnc-latency-histogram.desktop
+desktop-file-install share/applications/linuxcnc-pncconf.desktop
+desktop-file-install share/applications/linuxcnc-stepconf.desktop
+desktop-file-install share/applications/linuxcnc.desktop
+
+mkdir -p %{buildroot}/usr/share/icons/hicolor/48x48/apps
+cp -arLv linuxcncicon.png %{buildroot}/usr/share/icons/hicolor/48x48/apps/
+
 %files
 
 %license COPYING COPYING.more
 
 %{_bindir}/*
-%caps(cap_ipc_lock,cap_net_admin,cap_sys_rawio,cap_sys_nice+ep) %{_bindir}/rtapi_app
 %{_prefix}/lib/%{name}/*
 %{_libdir}/*
 %{_sysconfdir}/*
 %{_datadir}/*
-%{_mandir}/*
 %dir %{_includedir}/linuxcnc
 %{_includedir}/linuxcnc/*
 /usr/lib/tcltk/*
 
 %changelog
+* Sat Mar 07 2026 Alec Ari <neotheuser@ymail.com> - 03072026-1
+- Minor changes, fix missing icons
+
 * Sat Feb 07 2026 Alec Ari <neotheuser@ymail.com> - 02072026-1
 - Complete re-write from dwrobel, initial release
