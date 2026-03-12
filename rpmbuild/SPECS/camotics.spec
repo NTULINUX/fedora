@@ -14,6 +14,7 @@ Source0:        CAMotics-%{commit1}.zip
 Source1:        cbang-%{commit2}.zip
 
 BuildRequires:  bzip2-devel
+BuildRequires:  desktop-file-utils
 BuildRequires:  expat-devel
 BuildRequires:  gcc
 BuildRequires:  gcc-c++
@@ -22,9 +23,13 @@ BuildRequires:  libappstream-glib
 BuildRequires:  libevent-devel
 BuildRequires:  lz4-devel
 BuildRequires:  openssl-devel
+BuildRequires:  openssl-devel-engine
+BuildRequires:  python3-six
+BuildRequires:  python3-setuptools
 BuildRequires:  qt5-linguist
 BuildRequires:  qt5-qtbase-devel
 BuildRequires:  qt5-qttools-devel
+BuildRequires:  qt5-qtwebsockets-devel
 BuildRequires:  scons
 BuildRequires:  snappy-devel
 BuildRequires:  sqlite-devel
