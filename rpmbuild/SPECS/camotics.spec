@@ -4,7 +4,7 @@
 
 Name:           camotics
 Version:        03052026
-Release:        1
+Release:        2
 Summary:        Open-Source Simulation & Computer Aided Machining - A 3-axis CNC GCode simulator
 
 # Licenses in order: camotics / cbang / boost, clipper / libevent
@@ -30,6 +30,7 @@ BuildRequires:  qt5-linguist
 BuildRequires:  qt5-qtbase-devel
 BuildRequires:  qt5-qttools-devel
 BuildRequires:  qt5-qtwebsockets-devel
+BuildRequires:  re2-devel
 BuildRequires:  scons
 BuildRequires:  snappy-devel
 BuildRequires:  sqlite-devel
@@ -58,9 +59,13 @@ scons install install_prefix=%{buildroot}/usr
 desktop-file-install CAMotics.desktop
 
 %files
+%license CAMotics-%{commit1}/LICENSE CAMotics-%{commit1}/COPYING
 %{_bindir}/*
 %{_datadir}/*
 
 %changelog
+* Fri Mar 13 2026 Alec Ari <neotheuser@ymail.com> - 03052026-2
+- Fix dependencies and add license files
+
 * Thu Mar 05 2026 Alec Ari <neotheuser@ymail.com> - 03052026-1
 - Complete re-write
