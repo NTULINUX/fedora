@@ -11,6 +11,7 @@ Source0:        yapps2-%{commit0}.zip
 BuildArch:      noarch
 
 BuildRequires:  python3-devel
+BuildRequires:  python3-pip
 BuildRequires:  python3dist(setuptools)
 
 %description
@@ -30,6 +31,7 @@ Requires:       python3dist(setuptools)
 %pyproject_install
 
 %files
+%license LICENSE
 %{_bindir}/yapps2
 %{python3_sitelib}/yapps*
 
