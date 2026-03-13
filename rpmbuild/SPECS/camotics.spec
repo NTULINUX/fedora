@@ -4,7 +4,7 @@
 
 Name:           camotics
 Version:        03052026
-Release:        2
+Release:        3%{?dist}
 Summary:        Open-Source Simulation & Computer Aided Machining - A 3-axis CNC GCode simulator
 
 # Licenses in order: camotics / cbang / boost, clipper / libevent
@@ -21,6 +21,7 @@ BuildRequires:  gcc-c++
 BuildRequires:  leveldb-devel
 BuildRequires:  libappstream-glib
 BuildRequires:  libevent-devel
+BuildRequires:  libyaml-devel
 BuildRequires:  lz4-devel
 BuildRequires:  openssl-devel
 BuildRequires:  openssl-devel-engine
@@ -35,7 +36,6 @@ BuildRequires:  scons
 BuildRequires:  snappy-devel
 BuildRequires:  sqlite-devel
 BuildRequires:  v8-11.3-devel
-BuildRequires:  yaml-cpp-devel
 
 %description
 With CAMotics, you can simulate 3-axis GCode programs for CNCs and visualize the results in 3D.
@@ -64,6 +64,9 @@ desktop-file-install CAMotics.desktop
 %{_datadir}/*
 
 %changelog
+* Fri Mar 13 2026 Alec Ari <neotheuser@ymail.com> - 03052026-3
+- Fix yaml dependency
+
 * Fri Mar 13 2026 Alec Ari <neotheuser@ymail.com> - 03052026-2
 - Fix dependencies and add license files
 
