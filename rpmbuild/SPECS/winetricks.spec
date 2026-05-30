@@ -1,8 +1,8 @@
 %global snapshot 1
-%global commit0  b792287f5bec9086916aa9b81788e0ea38f02c24
+%global commit0  14b802e419aff260b9d630e71027d88855e224e7
 
 Name:           winetricks
-Version:        20260313
+Version:        20260529
 Release:        %autorelease
 Summary:        Work around common problems in Wine
 
@@ -63,6 +63,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %{_datadir}/metainfo/io.github.winetricks.Winetricks.metainfo.xml
 
 %changelog
+* Fri May 29 2026 Alec Ari <neotheuser@ymail.com> - 20260529-1
+- Fedora 44 initial release
+
 * Fri Mar 13 2026 Alec Ari <neotheuser@ymail.com> - 20260313-1
 - Allow Wine installation from WineHQ, use latest snapshot, remove unneeded sed
 

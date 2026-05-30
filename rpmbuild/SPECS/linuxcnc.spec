@@ -1,7 +1,7 @@
-%global commit 789e716f55beb625cfc71fe8be2ef9c7364bb689
+%global commit 4e35ef301f794e8a87e8d389f4aaee839afe30e8
 
 Name:          linuxcnc
-Version:       03072026
+Version:       05052026
 Release:       1
 Summary:       Motion controller for CNC machines and robots
 License:       GPLv2+
@@ -14,7 +14,6 @@ BuildRequires: autoconf
 BuildRequires: automake
 BuildRequires: openssl-devel
 BuildRequires: libusb1-devel
-BuildRequires: gtk2-devel
 BuildRequires: gtk3-devel
 BuildRequires: gtksourceview4
 BuildRequires: gettext-devel
@@ -23,7 +22,7 @@ BuildRequires: libudev-devel
 BuildRequires: boost-devel
 BuildRequires: boost-python3
 BuildRequires: boost-static
-BuildRequires: python3-Yapps
+BuildRequires: python3-yapps2
 BuildRequires: bwidget
 BuildRequires: boost-devel
 BuildRequires: libmodbus-devel
@@ -36,13 +35,11 @@ BuildRequires: libXmu-devel
 BuildRequires: desktop-file-utils
 BuildRequires: python3-gobject
 BuildRequires: asciidoc
-BuildRequires: blt
 BuildRequires: bwidget
 BuildRequires: hicolor-icon-theme
 BuildRequires: tkimg
 BuildRequires: libXt-devel
 BuildRequires: bc
-BuildRequires: tclx
 BuildRequires: libcanberra-gtk2
 BuildRequires: mesa-libGLU
 BuildRequires: python3-tkinter
@@ -55,8 +52,11 @@ BuildRequires: python3-qt5-webengine
 BuildRequires: pango
 BuildRequires: python3-gobject
 BuildRequires: python3-cairo
+BuildRequires: python3-pyside6-devel
+BuildRequires: pyside6-tools
 BuildRequires: fmt-devel
-BuildRequires: readline-devel
+BuildRequires: libedit-devel
+BuildRequires: shiboken6
 
 Suggests:      glade
 
@@ -76,8 +76,7 @@ popd
 %build
 
 pushd src
-%configure \
-    --enable-non-distributable=yes
+%configure
 popd
 
 %{make_build} -C src
@@ -104,7 +103,6 @@ cp -arLv linuxcncicon.png %{buildroot}/usr/share/icons/hicolor/48x48/apps/
 %{_libdir}/*
 %{_sysconfdir}/*
 %{_datadir}/*
-%dir %{_includedir}/linuxcnc
 %{_includedir}/linuxcnc/*
 /usr/lib/tcltk/*
 
