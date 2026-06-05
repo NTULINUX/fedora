@@ -1,8 +1,8 @@
-%global commit 4e35ef301f794e8a87e8d389f4aaee839afe30e8
+%global commit 81c3d892ba843993e3eae78d6efd54abaece848e
 
 Name:          linuxcnc
-Version:       05052026
-Release:       1
+Version:       06052026
+Release:       1%{?dist}
 Summary:       Motion controller for CNC machines and robots
 License:       GPLv2+
 URL:           http://www.linuxcnc.io/
@@ -57,11 +57,14 @@ BuildRequires: pyside6-tools
 BuildRequires: fmt-devel
 BuildRequires: libedit-devel
 BuildRequires: shiboken6
+BuildRequires: procps-ng
+BuildRequires: psmisc
 
 Suggests:      glade
 
 Recommends:    python3-opencv
 Recommends:    mesaflash
+Recommends:    kernel-rt-lto
 
 %description
 Motion controller for CNC machines and robots
@@ -79,10 +82,10 @@ pushd src
 %configure
 popd
 
-%{make_build} -C src
+%{make_build} %{?_smp_mflags} -C src
 
 %install
-%{make_install} -C src \
+%{make_install} %{?_smp_mflags} -C src \
     DESTDIR=%{buildroot}
 
 desktop-file-install share/applications/linuxcnc-latency.desktop
@@ -107,6 +110,9 @@ cp -arLv linuxcncicon.png %{buildroot}/usr/share/icons/hicolor/48x48/apps/
 /usr/lib/tcltk/*
 
 %changelog
+* Fri Jun 05 2026 Alec Ari <neotheuser@ymail.com> - 06052026-1
+- Add missing dependencies, update LinuxCNC sources, release fix
+
 * Sat Mar 07 2026 Alec Ari <neotheuser@ymail.com> - 03072026-1
 - Minor changes, fix missing icons
 
