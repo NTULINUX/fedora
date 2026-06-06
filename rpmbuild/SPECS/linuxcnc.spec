@@ -1,8 +1,9 @@
+%define _lto_cflags %{nil}
 %global commit 81c3d892ba843993e3eae78d6efd54abaece848e
 
 Name:          linuxcnc
-Version:       06052026
-Release:       2%{?dist}
+Version:       06062026
+Release:       1%{?dist}
 Summary:       Motion controller for CNC machines and robots
 License:       GPLv2+
 URL:           http://www.linuxcnc.io/
@@ -118,8 +119,7 @@ popd
 %{make_build} %{?_smp_mflags} -C src
 
 %install
-%{make_install} %{?_smp_mflags} -C src \
-    DESTDIR=%{buildroot}
+%{make_install} %{?_smp_mflags} -C src DESTDIR=%{buildroot}
 
 desktop-file-install share/applications/linuxcnc-latency.desktop
 desktop-file-install share/applications/linuxcnc-latency-histogram.desktop
@@ -143,6 +143,9 @@ cp -arLv linuxcncicon.png %{buildroot}/usr/share/icons/hicolor/48x48/apps/
 /usr/lib/tcltk/*
 
 %changelog
+* Sat Jun 06 2026 Alec Ari <neotheuser@ymail.com> - 06062026-1
+- Disable LTO to avoid possible misoptimization
+
 * Fri Jun 05 2026 Alec Ari <neotheuser@ymail.com> - 06052026-2
 - Add a lot more dependencies
 
