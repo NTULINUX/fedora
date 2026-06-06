@@ -1,1 +1,1 @@
-# Fedora 43 packages by NTULINUX
+# Fedora packages by NTULINUX
