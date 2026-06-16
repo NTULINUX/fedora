@@ -1,8 +1,8 @@
 %define _lto_cflags %{nil}
-%global commit 81c3d892ba843993e3eae78d6efd54abaece848e
+%global commit 2be516b13ba9e5d5ed5e10f1afce3b94ed50428a
 
 Name:          linuxcnc
-Version:       06062026
+Version:       06162026
 Release:       1%{?dist}
 Summary:       Motion controller for CNC machines and robots
 License:       GPLv2+
@@ -140,9 +140,11 @@ cp -arLv linuxcncicon.png %{buildroot}/usr/share/icons/hicolor/48x48/apps/
 %{_sysconfdir}/*
 %{_datadir}/*
 %{_includedir}/linuxcnc/*
-/usr/lib/tcltk/*
 
 %changelog
+* Tue Jun 16 2026 Alec Ari <neotheuser@ymail.com> - 06162026-1
+- Bump LinuxCNC commit, drops requirement for setting TCLLIBPATH
+
 * Sat Jun 06 2026 Alec Ari <neotheuser@ymail.com> - 06062026-1
 - Disable LTO to avoid possible misoptimization
 
