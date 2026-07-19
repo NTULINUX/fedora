@@ -1,8 +1,8 @@
 %define _lto_cflags %{nil}
-%global commit 2be516b13ba9e5d5ed5e10f1afce3b94ed50428a
+%global commit 4d50e6c5b85548e7afbc7421d77160d7d6697b10
 
 Name:          linuxcnc
-Version:       06162026
+Version:       07192026
 Release:       1%{?dist}
 Summary:       Motion controller for CNC machines and robots
 License:       GPLv2+
@@ -142,6 +142,9 @@ cp -arLv linuxcncicon.png %{buildroot}/usr/share/icons/hicolor/48x48/apps/
 %{_includedir}/linuxcnc/*
 
 %changelog
+* Sun Jul 19 2026 Alec Ari <neotheuser@ymail.com> - 07192026-1
+- Bump LinuxCNC commit
+
 * Tue Jun 16 2026 Alec Ari <neotheuser@ymail.com> - 06162026-1
 - Bump LinuxCNC commit, drops requirement for setting TCLLIBPATH
 
