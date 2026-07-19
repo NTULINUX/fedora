@@ -2,7 +2,7 @@
 
 Name:           wavemon
 Version:        0.9.7
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Ncurses-based monitoring application for wireless network devices
 
 # Automatically converted from old format: GPLv2+ - review is highly recommended.
@@ -53,7 +53,10 @@ rm -rf %{buildroot}%{_datadir}/%{name}/*
 %{_bindir}/%{name}
 
 %changelog
-* Sun Mar 15 2026 Alec Ari - 0.9.7-1
+* Sun Jul 19 2026 Alec Ari <neotheuser@ymail.com> - 0.9.7-2
+- Fedora 44 rebuild
+
+* Sun Mar 15 2026 Alec Ari <neotheuser@ymail.com> - 0.9.7-1
 - Bump version
 
 * Sun Jan 19 2025 Fedora Release Engineering <releng@fedoraproject.org> - 0.9.6-3
