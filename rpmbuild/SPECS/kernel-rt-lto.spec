@@ -1,12 +1,12 @@
 %define debug_package %{nil}
 %global set_build_flags %{nil}
 %global __global_compiler_flags %{nil}
-%global commit aa4cb4fe13329e93f4a06d6bdc0728458d0c82e2
+%global commit 36db0e6271862ed49e3ff2b689ccc84b738c883f
 
-%global kver 7.1.0-rc6-rt1
+%global kver 6.18.39-rt6
 
 Name:           kernel-rt-lto
-Version:        7.1.0.rc6.rt1
+Version:        6.18.39.rt6
 Release:        1%{?dist}
 Summary:        PREEMPT_RT Linux kernel
 
@@ -51,15 +51,20 @@ rm -rf %{buildroot}/lib/modules/%{kver}/build
 rm -rf %{buildroot}/lib/modules/%{kver}/source
 
 %post
-kernel-install add %{kver} /boot/vmlinuz-%{kver}
+/usr/bin/kernel-install add %{kver} /boot/vmlinuz-%{kver}
 
-%preun
-kernel-install remove %{kver}
+%postun
+if [ $1 -eq 0 ]; then
+    /usr/bin/kernel-install remove %{kver}
+fi
 
 %files
 /boot/*-%{kver}
 /lib/modules/%{kver}
 
 %changelog
+* Sun Jul 19 2026 Alec Ari <neotheuser@ymail.com> - 6.18.39.rt6-1
+- Change kernel to 6.18 LTS series and update spec file
+
 * Fri May 29 2026 Alec Ari <neotheuser@ymail.com> - 7.1.0.rc6.rt1-1
 - Initial optimized PREEMPT_RT release for Fedora 44
