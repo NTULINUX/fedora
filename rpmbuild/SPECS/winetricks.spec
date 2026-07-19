@@ -1,8 +1,8 @@
 %global snapshot 1
-%global commit0  14b802e419aff260b9d630e71027d88855e224e7
+%global commit0  08304e81f9ac9a83c552a6bd78689040d174bf95
 
 Name:           winetricks
-Version:        20260529
+Version:        20260719
 Release:        %autorelease
 Summary:        Work around common problems in Wine
 
@@ -63,6 +63,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %{_datadir}/metainfo/io.github.winetricks.Winetricks.metainfo.xml
 
 %changelog
+* Sun Jul 19 2026 Alec Ari <neotheuser@ymail.com> - 07192026-1
+- Update commit for package
+
 * Fri May 29 2026 Alec Ari <neotheuser@ymail.com> - 20260529-1
 - Fedora 44 initial release
 
