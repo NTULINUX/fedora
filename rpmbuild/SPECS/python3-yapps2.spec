@@ -2,7 +2,7 @@
 
 Name:           python3-yapps2
 Version:        2.2.1
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Yet Another Python Parser System
 
 License:        MIT
@@ -36,5 +36,8 @@ Requires:       python3dist(setuptools)
 %{python3_sitelib}/yapps*
 
 %changelog
-* Fri Mar 13 2026 Alec Ari - 2.2.1-1
+* Mon Jul 20 2026 Alec Ari <neotheuser@ymail.com> - 2.2.1-2
+- Add email
+
+* Fri Mar 13 2026 Alec Ari <neotheuser@ymail.com> - 2.2.1-1
 - Initial package.
