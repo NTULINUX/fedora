@@ -1,12 +1,12 @@
 %define debug_package %{nil}
 %global set_build_flags %{nil}
 %global __global_compiler_flags %{nil}
-%global commit 36db0e6271862ed49e3ff2b689ccc84b738c883f
+%global commit a4cc3b3e45eea26b96bf570ca327b311612f0b57
 
-%global kver 6.18.39-rt6
+%global kver 6.18.40-rt6
 
 Name:           kernel-rt-lto
-Version:        6.18.39.rt6
+Version:        6.18.40.rt6
 Release:        1%{?dist}
 Summary:        PREEMPT_RT Linux kernel
 
@@ -63,6 +63,9 @@ fi
 /lib/modules/%{kver}
 
 %changelog
+* Wed Jul 29 2026 Alec Ari <neotheuser@ymail.com> - 6.18.40.rt6-1
+- Bump kernel, config tweaks (enable THP)
+
 * Sun Jul 19 2026 Alec Ari <neotheuser@ymail.com> - 6.18.39.rt6-1
 - Change kernel to 6.18 LTS series and update spec file
 

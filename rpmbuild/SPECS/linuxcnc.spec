@@ -1,8 +1,8 @@
 %define _lto_cflags %{nil}
-%global commit 4d50e6c5b85548e7afbc7421d77160d7d6697b10
+%global commit d5c36874b541de75270b0f5d0ae75f2fe4c8e33c
 
 Name:          linuxcnc
-Version:       07192026
+Version:       07292026
 Release:       1%{?dist}
 Summary:       Motion controller for CNC machines and robots
 License:       GPLv2+
@@ -14,6 +14,7 @@ BuildRequires: autoconf
 BuildRequires: automake
 BuildRequires: avahi
 BuildRequires: bc
+BuildRequires: bwidget
 BuildRequires: %{_bindir}/a2x
 BuildRequires: %{_bindir}/convert
 BuildRequires: %{_bindir}/dd
@@ -142,6 +143,9 @@ cp -arLv linuxcncicon.png %{buildroot}/usr/share/icons/hicolor/48x48/apps/
 %{_includedir}/linuxcnc/*
 
 %changelog
+* Wed Jul 29 2026 Alec Ari <neotheuser@ymail.com> - 07292026-1
+- Bump LinuxCNC commit (memory leak fixes)
+
 * Sun Jul 19 2026 Alec Ari <neotheuser@ymail.com> - 07192026-1
 - Bump LinuxCNC commit
 

@@ -1,13 +1,11 @@
-%global commit0 637470028b48fb411bcc33d74b92ec4ca7cf3a2b
-
 Name:           flexgui
-Version:        07202026
+Version:        2.0.1
 Release:        1%{?dist}
 Summary:        A flexible GUI for LinuxCNC
 
 License:        MIT
 URL:            https://github.com/jethornton/flexgui
-Source0:        %{name}-%{commit0}.zip
+Source0:        %{name}-%{version}.tar.gz
 
 BuildArch:      noarch
 
@@ -21,7 +19,7 @@ Requires:       linuxcnc
 Flex GUI is a tool to build exactly the GUI you want for LinuxCNC.
 
 %prep
-%setup -n %{name}-%{commit0}
+%setup -n %{name}-%{version}
 
 %install
 install -d -m 0755 %{buildroot}%{_bindir}
@@ -58,5 +56,8 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/*.desktop
 %{python3_sitelib}/libflexgui/
 
 %changelog
+* Wed Jul 29 2026 Alec Ari <neotheuser@ymail.com> - 2.0.1-1
+- Bump FlexGUI to latest stable release
+
 * Mon Jul 20 2026 Alec Ari <neotheuser@ymail.com> - 07202026-1
 - Initial Fedora RPM release
