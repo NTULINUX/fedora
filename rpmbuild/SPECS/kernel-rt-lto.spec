@@ -1,13 +1,15 @@
 %define debug_package %{nil}
 %global set_build_flags %{nil}
 %global __global_compiler_flags %{nil}
-%global commit a4cc3b3e45eea26b96bf570ca327b311612f0b57
 
-%global kver 6.18.40-rt6
+%global commit 949d7562991683bfb797e7c4fed49399cba16f22
+%global kver 6.18.44
+%global rt rt6
+%global pkg_kver %{kver}-%{rt}
 
 Name:           kernel-rt-lto
-Version:        6.18.40.rt6
-Release:        1%{?dist}
+Version:        %{kver}.%{rt}
+Release:        %autorelease
 Summary:        PREEMPT_RT Linux kernel
 
 License:        GPLv2
@@ -35,39 +37,32 @@ PREEMPT_RT Linux kernel built with -O3 and ThinLTO
 %setup -q -n linux-%{commit}
 
 %build
-cp -arLv %{SOURCE1} .config
+cp -ar %{SOURCE1} .config
 LLVM=1 make %{?_smp_mflags} olddefconfig
 LLVM=1 make %{?_smp_mflags}
 
 %install
 mkdir -p %{buildroot}/boot
-cp -ar .config %{buildroot}/boot/config-%{kver}
-cp -ar System.map %{buildroot}/boot/System.map-%{kver}
-cp -ar arch/x86/boot/bzImage %{buildroot}/boot/vmlinuz-%{kver}
+cp -ar .config %{buildroot}/boot/config-%{pkg_kver}
+cp -ar System.map %{buildroot}/boot/System.map-%{pkg_kver}
+cp -ar arch/x86/boot/bzImage %{buildroot}/boot/vmlinuz-%{pkg_kver}
 
-make modules_install INSTALL_MOD_PATH=%{buildroot}
+LLVM=1 make modules_install INSTALL_MOD_PATH=%{buildroot}
 
-rm -rf %{buildroot}/lib/modules/%{kver}/build
-rm -rf %{buildroot}/lib/modules/%{kver}/source
+rm -rf %{buildroot}/lib/modules/%{pkg_kver}/build
+rm -rf %{buildroot}/lib/modules/%{pkg_kver}/source
 
 %post
-/usr/bin/kernel-install add %{kver} /boot/vmlinuz-%{kver}
+kernel-install add %{pkg_kver} /boot/vmlinuz-%{pkg_kver}
 
 %postun
-if [ $1 -eq 0 ]; then
-    /usr/bin/kernel-install remove %{kver}
+if [ $1 -eq 0 ] ; then
+    kernel-install remove %{pkg_kver}
 fi
 
 %files
-/boot/*-%{kver}
-/lib/modules/%{kver}
+/boot/*-%{pkg_kver}
+/lib/modules/%{pkg_kver}
 
 %changelog
-* Wed Jul 29 2026 Alec Ari <neotheuser@ymail.com> - 6.18.40.rt6-1
-- Bump kernel, config tweaks (enable THP)
-
-* Sun Jul 19 2026 Alec Ari <neotheuser@ymail.com> - 6.18.39.rt6-1
-- Change kernel to 6.18 LTS series and update spec file
-
-* Fri May 29 2026 Alec Ari <neotheuser@ymail.com> - 7.1.0.rc6.rt1-1
-- Initial optimized PREEMPT_RT release for Fedora 44
+%autochangelog
