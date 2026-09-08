@@ -2,8 +2,8 @@
 %global set_build_flags %{nil}
 %global __global_compiler_flags %{nil}
 
-%global commit 949d7562991683bfb797e7c4fed49399cba16f22
-%global kver 6.18.44
+%global commit 81555b5ffb12489b977c681ee06c948dd7b9d95a
+%global kver 6.18.50
 %global rt rt6
 %global pkg_kver %{kver}-%{rt}
 
