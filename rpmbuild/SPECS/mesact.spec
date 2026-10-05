@@ -1,7 +1,7 @@
 %global commit0 eff00a6e3cd0b36767b79848677a533e7358d2b8
 
 Name:           mesact
-Version:        09292026
+Version:        10042026
 Release:        1%{?dist}
 Summary:        Mesa Configuration Tool II
 
@@ -43,7 +43,7 @@ desktop-file-install mesact/mesa-docs.desktop
 gzip %{buildroot}%{_pkgdocdir}/mesact.pdf
 
 %files
-%doc LICENSE
+%license LICENSE
 %{_pkgdocdir}/mesact.pdf.gz
 %{_bindir}/mesact
 %{_exec_prefix}/lib/libmesact/
@@ -51,5 +51,8 @@ gzip %{buildroot}%{_pkgdocdir}/mesact.pdf
 %{_datadir}/applications/*.desktop
 
 %changelog
+* Sun Oct 04 2026 Alec Ari <neotheuser@ymail.com> - 10042026-1
+- Fix license file
+
 * Tue Sep 29 2026 Alec Ari <neotheuser@ymail.com> - 09292026-1
 - Initial package
