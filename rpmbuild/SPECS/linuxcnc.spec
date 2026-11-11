@@ -1,8 +1,8 @@
 %define _lto_cflags %{nil}
-%global commit caa13ca6ae62045c56d379e23010ec18f548224d
+%global commit 94c87ada2ff9531a56b461f6ade7408e66394218
 
 Name:          linuxcnc
-Version:       07302026
+Version:       20261106
 Release:       1%{?dist}
 Summary:       Motion controller for CNC machines and robots
 License:       GPLv2+
@@ -47,7 +47,6 @@ BuildRequires: inkscape
 BuildRequires: intltool
 BuildRequires: kmod
 BuildRequires: kmod-devel
-BuildRequires: libcanberra-gtk2
 BuildRequires: libcanberra-gtk3
 BuildRequires: libcap-devel
 BuildRequires: libedit-devel
@@ -111,7 +110,6 @@ Requires:      hicolor-icon-theme
 Requires:      initscripts
 Requires:      inkscape
 Requires:      kmod
-Requires:      libcanberra-gtk2
 Requires:      libcanberra-gtk3
 Requires:      mesa-libGLU
 Requires:      PackageKit-gtk3-module
