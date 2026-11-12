@@ -8,31 +8,36 @@
 Name:           ethercat-master
 Version:        20261111
 Release:        %autorelease
-Summary:        This is an open-source EtherCAT master implementation for Linux 2.6 or newer.
+Summary:        This is an open-source EtherCAT master implementation
 
 License:        GPL-2.0-only AND LGPL-2.1-only
 URL:            https://github.com/linuxcnc-ethercat/ethercat
 Source0:        ethercat-%{commit0}.zip
 
-BuildRequires:  make
-BuildRequires:  /usr/bin/git
-BuildRequires:  gcc
+BuildRequires:  kernel-rt-lto-nopm
+BuildRequires:  llvm
+BuildRequires:  clang
+BuildRequires:  lld
 BuildRequires:  pkgconfig(libpci)
 BuildRequires:  pkgconfig(libmd)
 
 %description
-This is an open-source EtherCAT master implementation for Linux 2.6 or newer.
+This is an open-source EtherCAT master implementation
 
 %prep
 %autosetup -n ethercat-%{commit0}
 ./bootstrap
 
 %build
+export CC="clang"
+export CXX="clang++"
+export LD="ld.lld"
 ./configure \
 	--prefix=/usr \
 	--sysconfdir=/etc \
 	--localstatedir=/var \
 	--with-systemdsystemunitdir=/usr/lib/systemd/system \
+	--with-linux-dir=/lib/modules/%{kernel_version}/build \
 	--disable-8139too \
 	--disable-eoe \
 	--enable-cycles \
@@ -52,6 +57,12 @@ LLVM=1 make %{?_smp_mflags} all modules
 %{make_install} INSTALL_MOD_PATH="%{buildroot}" modules_install
 rm -f %{buildroot}/lib/modules/%{kernel_version}/modules.*
 rm -rf %{buildroot}/etc/init.d
+
+%post
+/sbin/depmod -a %{kernel_version}
+
+%postun
+/sbin/depmod -a %{kernel_version}
 
 %files
 %license COPYING COPYING.LESSER
