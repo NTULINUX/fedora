@@ -1,8 +1,8 @@
 %global commit ce94068dc3ad8b8db5f28225598a97a9eb059ecb
 
 Name:           halviewer
-Version:        07302026
-Release:        1%{?dist}
+Version:        20261113
+Release:        %autorelease
 Summary:        Graphical halviewer for LinuxCNC
 
 License:        GPL-3.0-only
@@ -29,5 +29,5 @@ install -D -m 0755 halviewer.py %{buildroot}%{_bindir}/halviewer
 %{_bindir}/halviewer
 
 %changelog
-* Thu Jul 30 2026 Alec Ari <neotheuser@ymail.com> - 07302026-1
-- Initial Fedora RPM release
+* Fri Nov 13 2026 Alec Ari <neotheuser@ymail.com> - 20261113-1
+- Fedora 44 refresh

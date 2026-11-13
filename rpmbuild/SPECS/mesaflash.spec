@@ -5,8 +5,8 @@
 %global commit0 11e6f8571cc79d3acae57274aa57c4b99d26cb3f
 
 Name:           mesaflash
-Version:        10042026
-Release:        1%{?dist}
+Version:        20261113
+Release:        %autorelease
 Summary:        Configuration and diagnostic tool for Mesa Electronics boards
 
 License:        GPL-2.0-or-later
@@ -39,5 +39,5 @@ make %{?_smp_mflags}
 %{_mandir}/man1/*.1*
 
 %changelog
-* Sun Oct 04 2026 Alec Ari <neotheuser@ymail.com> - 10042026-1
-- Initial package
+* Fri Nov 13 2026 Alec Ari <neotheuser@ymail.com> - 20261113-1
+- Fedora 44 refresh
