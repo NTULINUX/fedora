@@ -1,3 +1,4 @@
+%define debug_package %{nil}
 %undefine _hardened_build
 
 Name:           wavemon
@@ -49,8 +50,8 @@ rm -rf %{buildroot}%{_datadir}/%{name}/*
 %files
 %doc README.md
 %license LICENSE
-%{_mandir}/man*/%{name}*.*
-%{_bindir}/%{name}
+%{_mandir}/man*/wavemon*.*
+%{_bindir}/wavemon
 
 %changelog
 * Fri Nov 13 2026 Alec Ari <neotheuser@ymail.com> - 0.9.7-1

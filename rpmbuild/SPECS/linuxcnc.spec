@@ -1,5 +1,7 @@
+%define debug_package %{nil}
 %define _lto_cflags %{nil}
-%global commit 4271037c6272c055f8c0faa79daccd5f3e82b4fe
+
+%global commit0 4271037c6272c055f8c0faa79daccd5f3e82b4fe
 
 Name:          linuxcnc
 Version:       20261113
@@ -7,7 +9,7 @@ Release:       %autorelease
 Summary:       Motion controller for CNC machines and robots
 License:       GPLv2+
 URL:           http://www.linuxcnc.io/
-Source0:       linuxcnc-%{commit}.zip
+Source0:       linuxcnc-%{commit0}.zip
 
 BuildRequires: %{_bindir}/a2x
 BuildRequires: %{_bindir}/convert
@@ -150,7 +152,7 @@ Recommends:    python3-opencv
 Motion controller for CNC machines and robots
 
 %prep
-%setup -n linuxcnc-%{commit}
+%setup -n %{name}-%{commit0}
 
 pushd src
 ./autogen.sh
@@ -180,7 +182,7 @@ cp -arLv linuxcncicon.png %{buildroot}/usr/share/icons/hicolor/48x48/apps/
 %license COPYING COPYING.more
 
 %{_bindir}/*
-%{_prefix}/lib/%{name}/*
+%{_prefix}/lib/linuxcnc/*
 %{_libdir}/*
 %{_sysconfdir}/*
 %{_datadir}/*

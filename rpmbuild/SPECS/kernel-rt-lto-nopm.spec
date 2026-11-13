@@ -2,7 +2,7 @@
 %global set_build_flags %{nil}
 %global __global_compiler_flags %{nil}
 
-%global commit e7c4cf2a0c52165bec65540ecbc2a54a979d1b24
+%global commit0 e7c4cf2a0c52165bec65540ecbc2a54a979d1b24
 %global kver 6.18.58
 %global rt rt6
 %global pkg_kver %{kver}-%{rt}-lto-nopm
@@ -14,7 +14,7 @@ Summary:       PREEMPT_RT Linux kernel without power management
 
 License:       GPL-2.0-only
 URL:           https://github.com/NTULINUX/linux
-Source0:       linux-%{commit}.zip
+Source0:       linux-%{commit0}.zip
 Source1:       rt_nopm.config
 
 BuildRequires: clang
@@ -34,7 +34,7 @@ BuildRequires: perl
 PREEMPT_RT Linux kernel built with -O3 and ThinLTO (no power management)
 
 %prep
-%setup -q -n linux-%{commit}
+%setup -q -n linux-%{commit0}
 
 %build
 cp -ar %{SOURCE1} .config

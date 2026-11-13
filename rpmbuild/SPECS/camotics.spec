@@ -1,6 +1,7 @@
 %global debug_package %{nil}
-%global commit1 e84665f2fa9d1151f03282ac7e01320bc65e015b
-%global commit2 14146609d60915b65b7c4b38dd36b9b6505e7bfa
+
+%global camotics_commit e84665f2fa9d1151f03282ac7e01320bc65e015b
+%global cbang_commit 14146609d60915b65b7c4b38dd36b9b6505e7bfa
 
 Name:           camotics
 Version:        20261113
@@ -10,8 +11,8 @@ Summary:        Open-Source Simulation & Computer Aided Machining - A 3-axis CNC
 # Licenses in order: camotics / cbang / boost, clipper / libevent
 License:        GPLv2+ and LGPLv2+ and Boost and BSD
 URL:            http://camotics.org/
-Source0:        CAMotics-%{commit1}.zip
-Source1:        cbang-%{commit2}.zip
+Source0:        CAMotics-%{camotics_commit}.zip
+Source1:        cbang-%{cbang_commit}.zip
 
 BuildRequires:  bzip2-devel
 BuildRequires:  desktop-file-utils
@@ -42,10 +43,10 @@ With CAMotics, you can simulate 3-axis GCode programs for CNCs and visualize the
 
 %prep
 %setup -c -a 0 -a 1
-mv -v cbang-%{commit2} CAMotics-%{commit1}/cbang
+mv -v cbang-%{cbang_commit} CAMotics-%{camotics_commit}/cbang
 
 %build
-cd CAMotics-%{commit1}/cbang
+cd CAMotics-%{camotics_commit}/cbang
 scons -j`nproc` v8_compress_pointers=false
 cd ..
 scons -j`nproc`
@@ -53,13 +54,13 @@ scons -j`nproc`
 %install
 export QA_RPATHS=$(( 0x0001 ))
 
-cd CAMotics-%{commit1}
+cd CAMotics-%{camotics_commit}
 scons install install_prefix=%{buildroot}/usr
 
 desktop-file-install CAMotics.desktop
 
 %files
-%license CAMotics-%{commit1}/LICENSE CAMotics-%{commit1}/COPYING
+%license CAMotics-%{camotics_commit}/LICENSE CAMotics-%{camotics_commit}/COPYING
 %{_bindir}/*
 %{_datadir}/*
 
