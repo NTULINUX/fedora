@@ -1,4 +1,4 @@
-%global commit ce94068dc3ad8b8db5f28225598a97a9eb059ecb
+%global commit0 ce94068dc3ad8b8db5f28225598a97a9eb059ecb
 
 Name:           halviewer
 Version:        20261113
@@ -7,7 +7,7 @@ Summary:        Graphical halviewer for LinuxCNC
 
 License:        GPL-3.0-only
 URL:            https://github.com/multigcs/halviewer
-Source0:        %{name}-%{commit}.zip
+Source0:        %{name}-%{commit0}.zip
 
 BuildArch:      noarch
 
@@ -19,7 +19,7 @@ Requires:       linuxcnc
 Graphical halviewer for LinuxCNC
 
 %prep
-%setup -n %{name}-%{commit}
+%setup -n %{name}-%{commit0}
 
 %install
 install -D -m 0755 halviewer.py %{buildroot}%{_bindir}/halviewer

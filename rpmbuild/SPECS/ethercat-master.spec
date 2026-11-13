@@ -45,7 +45,7 @@ This is an open-source EtherCAT master implementation
 	--enable-sii-assign \
 	--enable-rt-syslog
 
-LLVM=1 make V=1 %{?_smp_mflags} all modules
+LLVM=1 make %{?_smp_mflags} all modules
 
 %install
 %{make_install} INSTALL_MOD_PATH="%{buildroot}" modules_install

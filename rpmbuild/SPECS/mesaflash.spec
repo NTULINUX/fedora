@@ -35,7 +35,7 @@ make %{?_smp_mflags}
 %files
 %license COPYING
 %doc README.md
-%{_bindir}/%{name}
+%{_bindir}/mesaflash
 %{_mandir}/man1/*.1*
 
 %changelog

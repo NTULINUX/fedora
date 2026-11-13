@@ -23,7 +23,7 @@ Requires:       ethercat-master
 This is a set of LinuxCNC drivers for EtherCAT devices
 
 %prep
-%autosetup -n linuxcnc-ethercat-%{commit0}
+%autosetup -n %{name}-%{commit0}
 
 %build
 %make_build

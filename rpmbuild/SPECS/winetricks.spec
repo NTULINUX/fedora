@@ -55,11 +55,11 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %files
 %license COPYING debian/copyright
 %doc README.md
-%{_bindir}/%{name}
-%{_mandir}/man1/%{name}.1*
-%{_datadir}/applications/%{name}.desktop
-%{_datadir}/bash-completion/completions/%{name}
-%{_datadir}/icons/hicolor/scalable/apps/%{name}.svg
+%{_bindir}/winetricks
+%{_mandir}/man1/winetricks.1*
+%{_datadir}/applications/winetricks.desktop
+%{_datadir}/bash-completion/completions/winetricks
+%{_datadir}/icons/hicolor/scalable/apps/winetricks.svg
 %{_datadir}/metainfo/io.github.winetricks.Winetricks.metainfo.xml
 
 %changelog
