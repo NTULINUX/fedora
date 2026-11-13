@@ -1,9 +1,9 @@
 %define _lto_cflags %{nil}
-%global commit 94c87ada2ff9531a56b461f6ade7408e66394218
+%global commit 4271037c6272c055f8c0faa79daccd5f3e82b4fe
 
 Name:          linuxcnc
-Version:       20261106
-Release:       1%{?dist}
+Version:       20261113
+Release:       %autorelease
 Summary:       Motion controller for CNC machines and robots
 License:       GPLv2+
 URL:           http://www.linuxcnc.io/
@@ -157,15 +157,14 @@ pushd src
 popd
 
 %build
-
 pushd src
 %configure
 popd
 
-%{make_build} %{?_smp_mflags} -C src
+%{make_build} -C src
 
 %install
-%{make_install} %{?_smp_mflags} -C src DESTDIR=%{buildroot}
+%{make_install} -C src DESTDIR=%{buildroot}
 
 desktop-file-install share/applications/linuxcnc-latency.desktop
 desktop-file-install share/applications/linuxcnc-latency-histogram.desktop
@@ -188,29 +187,5 @@ cp -arLv linuxcncicon.png %{buildroot}/usr/share/icons/hicolor/48x48/apps/
 %{_includedir}/linuxcnc/*
 
 %changelog
-* Thu Jul 30 2026 Alec Ari <neotheuser@ymail.com> - 07302026-1
-- Bump LinuxCNC commit, complete dependency overhaul
-
-* Wed Jul 29 2026 Alec Ari <neotheuser@ymail.com> - 07292026-1
-- Bump LinuxCNC commit (memory leak fixes)
-
-* Sun Jul 19 2026 Alec Ari <neotheuser@ymail.com> - 07192026-1
-- Bump LinuxCNC commit
-
-* Tue Jun 16 2026 Alec Ari <neotheuser@ymail.com> - 06162026-1
-- Bump LinuxCNC commit, drops requirement for setting TCLLIBPATH
-
-* Sat Jun 06 2026 Alec Ari <neotheuser@ymail.com> - 06062026-1
-- Disable LTO to avoid possible misoptimization
-
-* Fri Jun 05 2026 Alec Ari <neotheuser@ymail.com> - 06052026-2
-- Add a lot more dependencies
-
-* Fri Jun 05 2026 Alec Ari <neotheuser@ymail.com> - 06052026-1
-- Add missing dependencies, update LinuxCNC sources, release fix
-
-* Sat Mar 07 2026 Alec Ari <neotheuser@ymail.com> - 03072026-1
-- Minor changes, fix missing icons
-
-* Sat Feb 07 2026 Alec Ari <neotheuser@ymail.com> - 02072026-1
-- Complete re-write from dwrobel, initial release
+* Fri Nov 13 2026 Alec Ari <neotheuser@ymail.com> - 20261113-1
+- Fedora 44 refresh

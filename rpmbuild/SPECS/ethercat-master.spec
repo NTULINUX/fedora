@@ -2,11 +2,11 @@
 %global set_build_flags %{nil}
 %global __global_compiler_flags %{nil}
 
-%global commit0 6e9d8f4dc54d04115d5014f9588dbb06f02c05e4
-%global kernel_version 6.18.58-rt6-lto-nopm
+%global commit0 7d1a4d0f2961306100cd57b41f698a6969adecc8
+%global kver 6.18.58-rt6-lto-nopm
 
 Name:           ethercat-master
-Version:        20261111
+Version:        20261113
 Release:        %autorelease
 Summary:        This is an open-source EtherCAT master implementation
 
@@ -15,9 +15,6 @@ URL:            https://github.com/linuxcnc-ethercat/ethercat
 Source0:        ethercat-%{commit0}.zip
 
 BuildRequires:  kernel-rt-lto-nopm
-BuildRequires:  llvm
-BuildRequires:  clang
-BuildRequires:  lld
 BuildRequires:  pkgconfig(libpci)
 BuildRequires:  pkgconfig(libmd)
 
@@ -29,15 +26,12 @@ This is an open-source EtherCAT master implementation
 ./bootstrap
 
 %build
-export CC="clang"
-export CXX="clang++"
-export LD="ld.lld"
 ./configure \
 	--prefix=/usr \
 	--sysconfdir=/etc \
 	--localstatedir=/var \
 	--with-systemdsystemunitdir=/usr/lib/systemd/system \
-	--with-linux-dir=/lib/modules/%{kernel_version}/build \
+	--with-linux-dir=/lib/modules/%{kver}/build \
 	--disable-8139too \
 	--disable-eoe \
 	--enable-cycles \
@@ -51,18 +45,18 @@ export LD="ld.lld"
 	--enable-sii-assign \
 	--enable-rt-syslog
 
-LLVM=1 make %{?_smp_mflags} all modules
+LLVM=1 make V=1 %{?_smp_mflags} all modules
 
 %install
 %{make_install} INSTALL_MOD_PATH="%{buildroot}" modules_install
-rm -f %{buildroot}/lib/modules/%{kernel_version}/modules.*
+rm -f %{buildroot}/lib/modules/%{kver}/modules.*
 rm -rf %{buildroot}/etc/init.d
 
 %post
-/sbin/depmod -a %{kernel_version}
+/sbin/depmod -a %{kver}
 
 %postun
-/sbin/depmod -a %{kernel_version}
+/sbin/depmod -a %{kver}
 
 %files
 %license COPYING COPYING.LESSER
@@ -75,7 +69,8 @@ rm -rf %{buildroot}/etc/init.d
 %{_prefix}/lib/pkgconfig/*
 %{_unitdir}/*
 %{_datadir}/*
-/lib/modules/%{kernel_version}/ethercat
+/lib/modules/%{kver}/ethercat
 
 %changelog
-%autochangelog
+* Fri Nov 13 2026 Alec Ari <neotheuser@ymail.com> - 20261113-1
+- Fedora 44 refresh

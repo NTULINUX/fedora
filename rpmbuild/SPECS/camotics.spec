@@ -1,10 +1,10 @@
 %global debug_package %{nil}
 %global commit1 e84665f2fa9d1151f03282ac7e01320bc65e015b
-%global commit2 7f6b13565742faa1dd0cb3ce8a2778d186797904
+%global commit2 14146609d60915b65b7c4b38dd36b9b6505e7bfa
 
 Name:           camotics
-Version:        07192026
-Release:        1%{?dist}
+Version:        20261113
+Release:        %autorelease
 Summary:        Open-Source Simulation & Computer Aided Machining - A 3-axis CNC GCode simulator
 
 # Licenses in order: camotics / cbang / boost, clipper / libevent
@@ -64,14 +64,5 @@ desktop-file-install CAMotics.desktop
 %{_datadir}/*
 
 %changelog
-* Sun Jul 19 2026 Alec Ari <neotheuser@ymail.com> - 07192026-1
-- Fedora 44 rebuild, update commits for packages
-
-* Fri Mar 13 2026 Alec Ari <neotheuser@ymail.com> - 03052026-3
-- Fix yaml dependency
-
-* Fri Mar 13 2026 Alec Ari <neotheuser@ymail.com> - 03052026-2
-- Fix dependencies and add license files
-
-* Thu Mar 05 2026 Alec Ari <neotheuser@ymail.com> - 03052026-1
-- Complete re-write
+* Fri Nov 13 2026 Alec Ari <neotheuser@ymail.com> - 20261113-1
+- Fedora 44 refresh

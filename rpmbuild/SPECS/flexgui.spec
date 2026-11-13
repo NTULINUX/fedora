@@ -1,8 +1,8 @@
-%global commit0 08ab4aa06bb92fb6fe46c6cebabd788fb8643b3e
+%global commit0 dd38878b984ba1b30a784343e96cda22c84be3fc
 
 Name:           flexgui
-Version:        20261110
-Release:        1%{?dist}
+Version:        20261113
+Release:        %autorelease
 Summary:        A flexible GUI for LinuxCNC
 
 License:        MIT
@@ -58,8 +58,5 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/*.desktop
 %{python3_sitelib}/libflexgui/
 
 %changelog
-* Wed Jul 29 2026 Alec Ari <neotheuser@ymail.com> - 2.0.1-1
-- Bump FlexGUI to latest stable release
-
-* Mon Jul 20 2026 Alec Ari <neotheuser@ymail.com> - 07202026-1
-- Initial Fedora RPM release
+* Fri Nov 13 2026 Alec Ari <neotheuser@ymail.com> - 20261113-1
+- Fedora 44 refresh

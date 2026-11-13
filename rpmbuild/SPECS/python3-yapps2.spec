@@ -1,8 +1,8 @@
 %global commit0 f9740671836157aefa3d960b50e6abbcda9e44df
 
 Name:           python3-yapps2
-Version:        07202026
-Release:        1%{?dist}
+Version:        20261113
+Release:        %autorelease
 Summary:        Yet Another Python Parser System
 
 License:        MIT
@@ -36,8 +36,5 @@ Requires:       python3dist(setuptools)
 %{python3_sitelib}/yapps*
 
 %changelog
-* Mon Jul 20 2026 Alec Ari <neotheuser@ymail.com> - 07202026-1
-- Add email, change version to git checkout date
-
-* Fri Mar 13 2026 Alec Ari <neotheuser@ymail.com> - 2.2.1-1
-- Initial package.
+* Fri Nov 13 2026 Alec Ari <neotheuser@ymail.com> - 20261113-1
+- Fedora 44 refresh
