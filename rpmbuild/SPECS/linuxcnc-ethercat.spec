@@ -11,8 +11,12 @@ License:        GPL-2.0-or-later
 URL:            https://github.com/linuxcnc-ethercat/linuxcnc-ethercat
 Source0:        linuxcnc-ethercat-%{commit0}.zip
 
+BuildRequires:  gcc
+BuildRequires:  make
+BuildRequires:  expat-devel
 BuildRequires:  kernel-rt-lto-nopm
 BuildRequires:  linuxcnc
+BuildRequires:  python3-yapps2
 BuildRequires:  ethercat-master
 
 Requires:       kernel-rt-lto-nopm
