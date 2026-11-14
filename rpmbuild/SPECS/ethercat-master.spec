@@ -14,7 +14,15 @@ License:        GPL-2.0-only AND LGPL-2.1-only
 URL:            https://github.com/linuxcnc-ethercat/ethercat
 Source0:        ethercat-%{commit0}.zip
 
+BuildRequires:  autoconf
+BuildRequires:  automake
+BuildRequires:  libtool
+BuildRequires:  gcc-c++
+BuildRequires:  clang
+BuildRequires:  lld
+BuildRequires:  llvm
 BuildRequires:  kernel-rt-lto-nopm
+BuildRequires:  systemd-rpm-macros
 BuildRequires:  pkgconfig(libpci)
 BuildRequires:  pkgconfig(libmd)
 
@@ -54,9 +62,14 @@ rm -rf %{buildroot}/etc/init.d
 
 %post
 /sbin/depmod -a %{kver}
+%systemd_post ethercat.service
+
+%preun
+%systemd_preun ethercat.service
 
 %postun
 /sbin/depmod -a %{kver}
+%systemd_postun_with_restart ethercat.service
 
 %files
 %license COPYING COPYING.LESSER
