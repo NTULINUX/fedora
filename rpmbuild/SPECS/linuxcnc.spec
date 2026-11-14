@@ -77,6 +77,7 @@ BuildRequires: pango
 BuildRequires: pango-devel
 BuildRequires: procps-ng
 BuildRequires: psmisc
+BuildRequires: pybind11-devel
 BuildRequires: pyside6-tools
 BuildRequires: python-lxml
 BuildRequires: python3-cairo
@@ -144,7 +145,7 @@ Requires:      qt6-qttools-devel
 Requires:      source-highlight
 Requires:      tkimg
 
-Recommends:    kernel-rt-lto
+Recommends:    kernel-rt-lto-nopm
 Recommends:    mesaflash
 Recommends:    python3-opencv
 
