@@ -179,9 +179,7 @@ mkdir -p %{buildroot}/usr/share/icons/hicolor/48x48/apps
 cp -arLv linuxcncicon.png %{buildroot}/usr/share/icons/hicolor/48x48/apps/
 
 %files
-
 %license COPYING COPYING.more
-
 %{_bindir}/*
 %{_prefix}/lib/linuxcnc/*
 %{_libdir}/*
