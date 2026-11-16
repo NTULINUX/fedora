@@ -1,10 +1,10 @@
 %define debug_package %{nil}
 %define _lto_cflags %{nil}
 
-%global commit0 4271037c6272c055f8c0faa79daccd5f3e82b4fe
+%global commit0 84a9595130aa241bd6785a3a32da9f729394948f
 
 Name:          linuxcnc
-Version:       20261113
+Version:       20261116
 Release:       %autorelease
 Summary:       Motion controller for CNC machines and robots
 License:       GPLv2+
@@ -188,5 +188,8 @@ cp -arLv linuxcncicon.png %{buildroot}/usr/share/icons/hicolor/48x48/apps/
 %{_includedir}/linuxcnc/*
 
 %changelog
+* Mon Nov 16 2026 Alec Ari <neotheuser@ymail.com> - 20261116-1
+- Initial Fedora 45 package
+
 * Fri Nov 13 2026 Alec Ari <neotheuser@ymail.com> - 20261113-1
 - Fedora 44 refresh

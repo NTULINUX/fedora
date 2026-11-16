@@ -1,7 +1,7 @@
 %global commit0 f9740671836157aefa3d960b50e6abbcda9e44df
 
 Name:           python3-yapps2
-Version:        20261113
+Version:        20261116
 Release:        %autorelease
 Summary:        Yet Another Python Parser System
 
@@ -36,5 +36,8 @@ Requires:       python3dist(setuptools)
 %{python3_sitelib}/yapps*
 
 %changelog
+* Mon Nov 16 2026 Alec Ari <neotheuser@ymail.com> - 20261116-1
+- Initial Fedora 45 package
+
 * Fri Nov 13 2026 Alec Ari <neotheuser@ymail.com> - 20261113-1
 - Fedora 44 refresh

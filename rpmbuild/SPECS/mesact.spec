@@ -1,7 +1,7 @@
 %global commit0 eff00a6e3cd0b36767b79848677a533e7358d2b8
 
 Name:           mesact
-Version:        20261113
+Version:        20261116
 Release:        %autorelease
 Summary:        Mesa Configuration Tool II
 
@@ -51,5 +51,8 @@ gzip %{buildroot}%{_pkgdocdir}/mesact.pdf
 %{_datadir}/applications/*.desktop
 
 %changelog
+* Mon Nov 16 2026 Alec Ari <neotheuser@ymail.com> - 20261116-1
+- Initial Fedora 45 package
+
 * Fri Nov 13 2026 Alec Ari <neotheuser@ymail.com> - 20261113-1
 - Fedora 44 refresh

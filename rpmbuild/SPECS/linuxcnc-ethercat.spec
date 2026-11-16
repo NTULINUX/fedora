@@ -1,9 +1,9 @@
 %define debug_package %{nil}
 
-%global commit0 db2a37dc73695e8d027f30db55e9a49ff5af812b
+%global commit0 19046028dd8b3ba72b0b0aae66996644d8fb7257
 
 Name:           linuxcnc-ethercat
-Version:        20261113
+Version:        20261116
 Release:        %autorelease
 Summary:        This is a set of LinuxCNC drivers for EtherCAT devices
 
@@ -42,5 +42,8 @@ This is a set of LinuxCNC drivers for EtherCAT devices
 %{_datadir}/linuxcnc-ethercat/*
 
 %changelog
+* Mon Nov 16 2026 Alec Ari <neotheuser@ymail.com> - 20261116-1
+- Initial Fedora 45 package
+
 * Fri Nov 13 2026 Alec Ari <neotheuser@ymail.com> - 20261113-1
 - Fedora 44 refresh

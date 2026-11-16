@@ -2,11 +2,11 @@
 %global set_build_flags %{nil}
 %global __global_compiler_flags %{nil}
 
-%global commit0 7d1a4d0f2961306100cd57b41f698a6969adecc8
+%global commit0 9818e926b60cd0fcca684d607c92691a2c9680eb
 %global kver 6.18.58-rt6-lto-nopm
 
 Name:           ethercat-master
-Version:        20261113
+Version:        20261116
 Release:        %autorelease
 Summary:        This is an open-source EtherCAT master implementation
 
@@ -85,5 +85,8 @@ rm -rf %{buildroot}/etc/init.d
 /lib/modules/%{kver}/ethercat
 
 %changelog
+* Mon Nov 16 2026 Alec Ari <neotheuser@ymail.com> - 20261116-1
+- Initial Fedora 45 package
+
 * Fri Nov 13 2026 Alec Ari <neotheuser@ymail.com> - 20261113-1
 - Fedora 44 refresh

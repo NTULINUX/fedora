@@ -5,7 +5,7 @@
 %global commit0 11e6f8571cc79d3acae57274aa57c4b99d26cb3f
 
 Name:           mesaflash
-Version:        20261113
+Version:        20261116
 Release:        %autorelease
 Summary:        Configuration and diagnostic tool for Mesa Electronics boards
 
@@ -39,5 +39,8 @@ make %{?_smp_mflags}
 %{_mandir}/man1/*.1*
 
 %changelog
+* Mon Nov 16 2026 Alec Ari <neotheuser@ymail.com> - 20261116-1
+- Initial Fedora 45 package
+
 * Fri Nov 13 2026 Alec Ari <neotheuser@ymail.com> - 20261113-1
 - Fedora 44 refresh

@@ -1,7 +1,7 @@
 %global commit0 ce94068dc3ad8b8db5f28225598a97a9eb059ecb
 
 Name:           halviewer
-Version:        20261113
+Version:        20261116
 Release:        %autorelease
 Summary:        Graphical halviewer for LinuxCNC
 
@@ -29,5 +29,8 @@ install -D -m 0755 halviewer.py %{buildroot}%{_bindir}/halviewer
 %{_bindir}/halviewer
 
 %changelog
+* Mon Nov 16 2026 Alec Ari <neotheuser@ymail.com> - 20261116-1
+- Initial Fedora 45 package
+
 * Fri Nov 13 2026 Alec Ari <neotheuser@ymail.com> - 20261113-1
 - Fedora 44 refresh

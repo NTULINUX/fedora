@@ -1,7 +1,7 @@
-%global commit0 dd38878b984ba1b30a784343e96cda22c84be3fc
+%global commit0 6d30ebe34e7e0c731319d6bc97b5060583713e7d
 
 Name:           flexgui
-Version:        20261113
+Version:        20261116
 Release:        %autorelease
 Summary:        A flexible GUI for LinuxCNC
 
@@ -14,8 +14,9 @@ BuildArch:      noarch
 BuildRequires:  python3-devel
 BuildRequires:  desktop-file-utils
 
-Requires:       python3
 Requires:       linuxcnc
+Requires:       python3
+Requires:       python3-pyqt6
 
 %description
 Flex GUI is a tool to build exactly the GUI you want for LinuxCNC.
@@ -58,5 +59,8 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/*.desktop
 %{python3_sitelib}/libflexgui/
 
 %changelog
+* Mon Nov 16 2026 Alec Ari <neotheuser@ymail.com> - 20261116-1
+- Initial Fedora 45 package, add python3-pyqt6 dep
+
 * Fri Nov 13 2026 Alec Ari <neotheuser@ymail.com> - 20261113-1
 - Fedora 44 refresh
