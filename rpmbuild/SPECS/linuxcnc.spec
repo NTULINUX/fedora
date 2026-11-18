@@ -1,10 +1,10 @@
 %define debug_package %{nil}
 %define _lto_cflags %{nil}
 
-%global commit0 84a9595130aa241bd6785a3a32da9f729394948f
+%global commit0 8112d7fc3eadb4bc98128c7a7e8e692afd4893f2
 
 Name:          linuxcnc
-Version:       20261116
+Version:       20261118
 Release:       %autorelease
 Summary:       Motion controller for CNC machines and robots
 License:       GPLv2+
@@ -132,6 +132,7 @@ Requires:      python3-pybind11
 Requires:      python3-pyopengl
 Requires:      python3-pyqtgraph
 Requires:      python3-pyside6
+Requires:      python3-QtPy
 Requires:      python3-qscintilla-qt5
 Requires:      python3-qt5
 Requires:      python3-qt5-webengine
@@ -140,6 +141,7 @@ Requires:      python3-sqlalchemy
 Requires:      python3-tkinter
 Requires:      python3-vtk
 Requires:      python3-xlib
+Requires:      python3-zmq
 Requires:      qt5-qtwebengine
 Requires:      qt6-qttools-devel
 Requires:      source-highlight
@@ -188,6 +190,9 @@ cp -arLv linuxcncicon.png %{buildroot}/usr/share/icons/hicolor/48x48/apps/
 %{_includedir}/linuxcnc/*
 
 %changelog
+* Wed Nov 18 2026 Alec Ari <neotheuser@ymail.com> - 20261118-1
+- Bump commit, add more dependencies
+
 * Mon Nov 16 2026 Alec Ari <neotheuser@ymail.com> - 20261116-1
 - Initial Fedora 45 package
 

@@ -1,7 +1,7 @@
-%global commit0 6d30ebe34e7e0c731319d6bc97b5060583713e7d
+%global commit0 76605f621ada3042975ea40f3a1809e5b7594319
 
 Name:           flexgui
-Version:        20261116
+Version:        20261118
 Release:        %autorelease
 Summary:        A flexible GUI for LinuxCNC
 
@@ -59,6 +59,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/*.desktop
 %{python3_sitelib}/libflexgui/
 
 %changelog
+* Wed Nov 18 2026 Alec Ari <neotheuser@ymail.com> - 20261118-1
+- Bump commit
+
 * Mon Nov 16 2026 Alec Ari <neotheuser@ymail.com> - 20261116-1
 - Initial Fedora 45 package, add python3-pyqt6 dep
 
