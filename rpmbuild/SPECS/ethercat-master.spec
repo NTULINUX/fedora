@@ -2,11 +2,11 @@
 %global set_build_flags %{nil}
 %global __global_compiler_flags %{nil}
 
-%global commit0 9818e926b60cd0fcca684d607c92691a2c9680eb
+%global commit0 f53a970163ba3a7dd67d900af326079afeebea10
 %global kver 6.18.58-rt6-lto-nopm
 
 Name:           ethercat-master
-Version:        20261116
+Version:        20261119
 Release:        %autorelease
 Summary:        This is an open-source EtherCAT master implementation
 
@@ -40,7 +40,18 @@ This is an open-source EtherCAT master implementation
 	--localstatedir=/var \
 	--with-systemdsystemunitdir=/usr/lib/systemd/system \
 	--with-linux-dir=/lib/modules/%{kver}/build \
-	--disable-8139too \
+	--enable-generic \
+	--enable-8139too \
+	--enable-e100 \
+	--enable-e1000 \
+	--enable-e1000e \
+	--enable-r8169 \
+	--enable-igb \
+	--enable-igc \
+	--enable-genet \
+	--disable-stmmac-pci \
+	--disable-dwmac-intel \
+	--disable-ccat \
 	--disable-eoe \
 	--enable-cycles \
 	--enable-hrtimer \
@@ -85,6 +96,9 @@ rm -rf %{buildroot}/etc/init.d
 /lib/modules/%{kver}/ethercat
 
 %changelog
+* Thu Nov 19 2026 Alec Ari <neotheuser@ymail.com> - 20261119-1
+- Bump commit, add hardware drivers from Debian's DKMS
+
 * Mon Nov 16 2026 Alec Ari <neotheuser@ymail.com> - 20261116-1
 - Initial Fedora 45 package
 
