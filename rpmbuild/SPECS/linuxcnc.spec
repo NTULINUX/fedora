@@ -1,10 +1,10 @@
 %define debug_package %{nil}
 %define _lto_cflags %{nil}
 
-%global commit0 8112d7fc3eadb4bc98128c7a7e8e692afd4893f2
+%global commit0 49d14cb67fe4a2e024a990f3af15152c56005ac3
 
 Name:          linuxcnc
-Version:       20261118
+Version:       20261122
 Release:       %autorelease
 Summary:       Motion controller for CNC machines and robots
 License:       GPLv2+
@@ -190,6 +190,9 @@ cp -arLv linuxcncicon.png %{buildroot}/usr/share/icons/hicolor/48x48/apps/
 %{_includedir}/linuxcnc/*
 
 %changelog
+* Sun Nov 22 2026 Alec Ari <neotheuser@ymail.com> - 20261122-1
+- Bump commit
+
 * Wed Nov 18 2026 Alec Ari <neotheuser@ymail.com> - 20261118-1
 - Bump commit, add more dependencies
 

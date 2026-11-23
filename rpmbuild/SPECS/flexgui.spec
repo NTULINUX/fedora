@@ -1,7 +1,7 @@
-%global commit0 6cf2f3a9003cb91726e5a63daacd2392f3de0052
+%global commit0 e8f97e1e2b1fc283fe86bec8e03acea8fa2a1bb3
 
 Name:           flexgui
-Version:        20261119
+Version:        20261122
 Release:        %autorelease
 Summary:        A flexible GUI for LinuxCNC
 
@@ -59,6 +59,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/*.desktop
 %{python3_sitelib}/libflexgui/
 
 %changelog
+* Sun Nov 22 2026 Alec Ari <neotheuser@ymail.com> - 20261122-1
+- Bump commit
+
 * Thu Nov 19 2026 Alec Ari <neotheuser@ymail.com> - 20261119-1
 - Bump commit
 
