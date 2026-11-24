@@ -2,11 +2,11 @@
 %global set_build_flags %{nil}
 %global __global_compiler_flags %{nil}
 
-%global commit0 f53a970163ba3a7dd67d900af326079afeebea10
-%global kver 6.18.58-rt6-lto-nopm
+%global commit0 2735083f3a0841a13f721b32e63ac468fe9713a4
+%global kver 6.18.65-rt9-lto-nopm
 
 Name:           ethercat-master
-Version:        20261119
+Version:        20261123
 Release:        %autorelease
 Summary:        This is an open-source EtherCAT master implementation
 
@@ -96,6 +96,9 @@ rm -rf %{buildroot}/etc/init.d
 /lib/modules/%{kver}/ethercat
 
 %changelog
+* Mon Nov 23 2026 Alec Ari <neotheuser@ymail.com> - 20261123-1
+- Bump commit, realign with kernel-rt-lto-nopm
+
 * Thu Nov 19 2026 Alec Ari <neotheuser@ymail.com> - 20261119-1
 - Bump commit, add hardware drivers from Debian's DKMS
 
